@@ -12,6 +12,15 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  // Proxy configuration
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:3001/api/:path*', // Proxy to Nest application
+      },
+    ];
+  },
 };
 
 const plugins = [
